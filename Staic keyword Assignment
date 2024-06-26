@@ -1,0 +1,247 @@
+1. Why do we need static keyword in Java Programming?
+Ans: The static keyword in Java is used to declare members (variables and methods) that belong to a class rather than to an instance of the class.
+
+Creating Class-Level Members:
+ When you declare a member as static, it becomes associated with the class itself rather than with individual instances of the class. This means there is only one copy of the static member for the entire class, shared among all instances.
+
+Accessing Members without Object Creation: 
+static members can be accessed directly using the class name, without the need to create an instance of the class. This makes them suitable for utility methods and constants.
+
+Constants:
+ You can use the static keyword to define constants in Java. Constants are typically declared as static final variables and are often used for values that should not be changed throughout the program.
+
+Utility Methods: 
+static methods are commonly used for utility functions that don't require an object's state to operate. They can be called directly on the class and are often used in libraries and frameworks.
+
+Memory Efficiency: 
+static members are stored in a separate memory location associated with the class itself, rather than being duplicated for each object instance. This can lead to memory savings when you have many instances of a class.
+
+===================================================================================================================
+
+2. What is class loading and how does the Java program actually executes?
+Ans:Class loading is a crucial step in the execution of a Java program. It is the process by which the Java Virtual Machine (JVM) loads classes (i.e., bytecode) into memory so that they can be executed.
+
+Class Loading:
+ When you run a Java program, the JVM is responsible for loading the necessary classes into memory. Class loading involves three main steps:
+
+Loading: 
+The class loader loads the bytecode of the class into memory. At this point, the bytecode is not yet executed.
+Linking:
+ The linking step involves three sub-steps: verification, preparation, and resolution.
+Verification:
+ The JVM verifies that the loaded bytecode is well-formed and doesn't violate security constraints.
+Preparation: 
+Memory is allocated for class variables and initialized with default values.
+Resolution:
+ If the class references other classes or methods, those references are resolved.
+Initialization: 
+In this step, the class's static variables are initialized, and the static initializer blocks are executed. This occurs when the class is first used in the program.
+
+===================================================================================================================
+
+3. Can we mark a local variable as static?
+Ans: no 
+
+===================================================================================================================
+
+4. Why is a static method also called a class method?
+Ans: A  static method is also commonly referred to as a "class method" because it is associated with the class itself rather than with instances or objects of the class. The term "class method" emphasizes the fact that the method is invoked on the class, not on a particular instance of the class. 
+
+===================================================================================================================
+
+5. Why is the static block executed before the main method in java?
+Ans: In Java, the static block (also known as a static initializer block) is executed before the main method because of the way the Java Virtual Machine (JVM) processes classes during their loading and initialization phases. This order of execution ensures that static resources and initializations are set up before the program's entry point (main method) is invoked. 
+
+===================================================================================================================
+
+6. What is the use of static keyword Explain with an example?
+Ans:The static keyword in Java is used to declare members (variables and methods) that belong to the class itself rather than to instances of the class.
+
+===================================================================================================================
+
+7. The difference between a static variable and instance variable is as follows:
+Ans: 
+Static Variable: 
+A static variable is associated with the class itself, not with individual instances of the class. It is shared among all instances of the class and is accessible using the class name.
+Instance Variable: 
+An instance variable is specific to each individual instance (object) of the class. Each instance has its own copy of the instance variable.
+
+===================================================================================================================
+
+8. Difference between static and non static members of a class?
+Ans:
+Static Members:
+Static members are associated with the class itself rather than with any specific instance (object) of the class.
+They are declared using the static keyword.
+There is only one copy of a static member per class, shared among all instances of the class.
+Static fields can be accessed using the class name (e.g., ClassName.staticField) without creating an instance of the class.
+Static methods can also be called using the class name, and they cannot access instance-specific data (non-static fields or methods) directly.
+Common use cases for static members include constants, utility methods, and shared resources.
+
+Non-Static (Instance) Members:
+Non-static members are associated with instances (objects) of the class.
+They are not declared with the static keyword.
+Each instance of the class has its own set of non-static members, and they can have different values in different instances.
+Non-static fields and methods are accessed using an instance of the class.
+They can access both static and non-static members of the class.
+
+===================================================================================================================
+
+------------------------------------------- Practical Assignment ---------------------------------------------
+
+===================================================================================================================
+
+1.Create a class that keeps track of the number of instances created. Implement a static
+variable and method to accomplish this.
+Sol: countInstan.java
+
+public class countInstan
+{
+
+    private static int instanceCount = 0;
+
+    public  countInstan() 
+    {
+		instanceCount++;
+	}
+
+    public static int getInstanceCount() 
+    {
+        return instanceCount;
+    }
+
+    public static void main(String[] args) 
+    {
+        countInstan c1 = new countInstan();
+        countInstan c2 = new countInstan();
+        countInstan c3 = new countInstan();
+
+        System.out.println("Number of instances created:" + countInstan.getInstanceCount());
+    }   
+}
+
+=================================================================================================================
+
+2.Write a program and create a constructor with parameters and initialise the variable using a constructor?
+Sol: paraConst.java
+
+class constu
+{
+    private String name;
+    private int id;
+
+    constu(){
+        System.out.println("default constructor");
+    }
+    constu(String name , int id){
+            this.name= name;
+            this.id = id;
+    }
+
+    void disp()
+    {
+        System.out.println(name);
+        System.out.println(id);
+    }
+}
+public class paraConst 
+{
+    public static void main(String[] args) 
+    {
+        constu con1 = new constu();
+        constu con = new constu("Saurabh" , 23);
+        con.disp();
+    }    
+}
+
+============================================================================================================================
+
+3.Use a private keyword for a variable and use setter and getter methods to initialise and print the values.
+Sol: setGetEn.java
+import java.util.Scanner;
+
+class encap
+{
+     private int id;
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+    public int getId()
+    {
+        return id;
+    }
+}
+public class setGetEn 
+{
+    public static void main(String[] args)
+    {
+         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the id ");
+        int a = sc.nextInt();
+        
+        encap obj = new encap();
+        obj.setId(a);
+        System.out.println("The User Entered id is:" +obj.getId());
+        sc.close();    
+    }    
+}
+
+===========================================================================================================================
+
+4.Write a program to call a method without creating an object of a class?
+Sol: staMet.java
+class free
+{
+    static void disp()
+    {
+        System.out.println("This is static method");
+    }
+}
+
+public class staMet 
+{
+    public static void main(String[] args) {
+        free.disp();
+    }    
+}
+
+==============================================================================================================================
+
+5.Write a program which has static block and constructor overloading,initialise variables using constructors and print it.
+Sol:
+class combo
+{
+    private String name;
+    private int id;
+
+    combo(){
+        System.out.println("default constructor");
+    }
+    combo(String name , int id){
+            this.name= name;
+            this.id = id;
+    }
+
+    void disp()
+    {
+        System.out.println(name);
+        System.out.println(id);
+    }
+    static
+    {
+        System.out.println("This is static block");
+    }
+}
+
+public class conSta 
+{
+    public static void main(String[] args)
+    {
+        combo con1 = new combo();
+        combo con = new combo("Saurabh" , 23);
+        con.disp();
+    }    
+
+}
