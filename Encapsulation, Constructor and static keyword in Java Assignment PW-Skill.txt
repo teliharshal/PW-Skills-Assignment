@@ -1,0 +1,141 @@
+
+------------------------------------------- Encapsulation Assignment ------------------------------------------------
+
+
+1. What is Encapsulation in Java? Why is it called Data hiding?
+Ans: Encapsulation is defined as the wrapping up of data under a single unit. It is the mechanism that binds together code and the data it manipulates. Another way to think about encapsulation is, that it is a protective shield that prevents the data from being accessed by the code outside this shield. 
+
+Data Hiding: 
+It is a way of restricting the access of our data members by hiding the implementation details. The user will have no idea about the inner implementation of the class. It will not be visible to the user how the class is storing values in the variables.
+
+===============================================================================================================================
+
+2. What are the important features of Encapsulation?
+Ans: 
+Data Hiding: 
+Encapsulation hides the internal details of an object's state (data members) from the outside world. It restricts direct access to these data members by using access modifiers like private, protected, and public, allowing you to control who can modify or access the data.
+
+Access Control: 
+Encapsulation provides control over how data can be accessed and modified. You can define public methods (getters and setters) that allow controlled access to the encapsulated data. This enables you to enforce rules, validation, and security checks when interacting with the data.
+
+Modularity: 
+Encapsulation promotes modularity by bundling data and methods into a single unit (a class). This modular design simplifies the codebase and makes it more manageable, as changes to the internal implementation of a class do not affect external code that uses the class.
+
+Flexibility: 
+Encapsulation allows you to change the internal implementation of a class without affecting the external interface. This flexibility is crucial for code maintenance and evolution, as it reduces the risk of introducing bugs when making changes.
+
+Code Reusability: 
+Encapsulation encourages code reusability. Once you've defined a well-encapsulated class, you can reuse it in different parts of your code or in different projects, knowing that its behavior is consistent and reliable.
+
+==============================================================================================================================
+
+3. What are getter and setter methods in Java Explain with an example?
+Ans:
+Getter and setter methods are a pair of special methods in Java (and many other object-oriented programming languages) used to control access to the private or encapsulated data members (fields) of a class. These methods allow you to get (retrieve) and set (modify) the values of these private fields while providing a level of encapsulation and control over data access. Here's an explanation with an example:
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a new Person object
+        Person person = new Person();
+
+        // Use the setter method to set the name
+        person.setName("John Doe");
+
+        // Use the getter method to retrieve the name and print it
+        System.out.println("Name: " + person.getName());
+        
+        // Try to set an invalid name
+        person.setName(""); // This will print the error message
+    }
+}
+
+==============================================================================================================================================
+
+4. What is the use of this keyword explain with an example
+Ans:
+In Java, the this keyword is used to refer to the current instance of the class in which it is used. It is often employed to distinguish between instance variables (fields) and method parameters or local variables when they share the same name. The this keyword can also be used to call other constructors within the same class, which is particularly useful in constructor chaining. Here's an explanation with examples:
+
+public class Person {
+    private String name;
+
+    public void setName(String name) {
+        // Use 'this' to refer to the instance variable 'name' and distinguish it from the method parameter 'name'
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+============================================================================================================================================
+
+5. What is the advantage of Encapsulation?
+Ans: 
+Controlled Access: 
+Encapsulation allows you to control access to the internal state (data members or fields) of an object. By using access modifiers like private, protected, and public, you can restrict or allow access to specific data members. This control prevents unintended or unauthorized modifications, enhancing data integrity and security.
+
+Data Hiding:
+ Encapsulation is often referred to as "data hiding" because it hides the internal implementation details of a class from external code. This separation of concerns makes it easier to understand and use the class, as users don't need to know how the class works internally, only how to interact with it through its public interface.
+
+Validation and Consistency: 
+Encapsulation allows you to encapsulate data and behavior within a class. This means you can enforce validation rules and constraints when setting or modifying data through setter methods. It ensures that data remains in a consistent and valid state, reducing the chances of errors.
+
+Flexibility and Maintainability: 
+Encapsulation promotes a modular and flexible code structure. It allows you to modify the internal implementation of a class without affecting the code that uses the class. This separation of concerns makes your codebase more maintainable and adaptable to changes.
+
+Code Reusability: 
+Encapsulated classes can be reused in various parts of your code or in different projects because they provide a clear and well-defined interface. This reusability reduces code duplication and promotes a more efficient development process.
+
+Abstraction: 
+Encapsulation encourages abstraction by exposing only the essential properties and behaviors of an object. Abstraction simplifies the interaction with objects, as users only need to understand and work with the high-level interface, not the underlying complexity.
+
+Security: 
+By hiding implementation details and providing controlled access, encapsulation enhances security. It reduces the risk of unauthorized access or manipulation of sensitive data.
+
+Encapsulation Across Inheritance Hierarchies: 
+Encapsulation can be applied consistently across inheritance hierarchies. Subclasses inherit encapsulation principles from their parent classes, ensuring that encapsulation is maintained throughout the inheritance structure.
+
+Documentation and Self-Containment: 
+Encapsulated classes are typically well-documented and self-contained. They provide clear information about their public interface, making it easier for other developers to understand and use them.
+
+Reduced Complexity: 
+Encapsulation reduces the complexity of code by encapsulating related data and behavior within a class. This simplifies the usage of objects and promotes a cleaner and more understandable code structure.
+
+============================================================================================================================================
+
+6. How to achieve encapsulation in Java? Give an example?
+Ans:
+Encapsulation in Java is achieved by following a set of guidelines and best practices that involve using access modifiers, getter and setter methods, and private instance variables (fields). Here's how you can achieve encapsulation in Java, along with an example:
+
+Declare Private Fields: Declare instance variables (fields) as private. This makes them inaccessible from outside the class, ensuring data hiding.
+
+Use Getter Methods: Provide public getter methods to allow controlled read-only access to the private fields. Getter methods should return the values of these fields.
+
+Use Setter Methods: Provide public setter methods to allow controlled modification of the private fields. Setter methods should update the values of these fields after validation checks, if necessary.
+
+public class Main {
+    public static void main(String[] args) {
+        Student student = new Student();
+
+        // Using setter methods to set values
+        student.setName("Alice");
+        student.setAge(25);
+
+        // Using getter methods to retrieve values
+        String name = student.getName();
+        int age = student.getAge();
+
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+==============================================================================================================================================
+
+------------------------------------------- Constructor Assignment ---------------------------------------------
+
+==========================================================================================================================================
+
+
+===============================================================================================================================
