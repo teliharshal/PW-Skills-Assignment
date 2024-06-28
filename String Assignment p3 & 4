@@ -1,0 +1,163 @@
+1. What is Mutable String in Java Explain with an example?
+Ans: In Java, strings are inherently immutable, which means that once you create a String object, its value cannot be changed. However, you can simulate mutability by using a StringBuilder or StringBuffer object, which allows you to modify the contents of a string-like object efficiently.
+public class MutableStringExample {
+    public static void main(String[] args) {
+        StringBuilder mutableString = new StringBuilder("Hello, ");
+
+        // Append to the mutable string
+        mutableString.append("world!");
+
+        // Modify the mutable string
+        mutableString.replace(0, 5, "Hi");
+
+        System.out.println("Mutable String: " + mutableString.toString());
+    }
+}
+
+2. WAP to reverse a String?
+Ans: 
+//WAP to reverse a String = revAstr.java
+public class revAstr {
+    public static void main(String[] args) {
+        String name = "Saurabh Bahadur";
+        String rev = reverseString(name);
+        System.out.println("The original string is: " + name);
+        System.out.println("The reversed string is: " + rev);
+    }
+
+    public static String reverseString(String str) {
+        StringBuffer sb = new StringBuffer(str);
+        sb.reverse();
+        return sb.toString();
+    }
+}
+
+//3. WAP to reverse a sentence while preserving the position  = revAsen.java
+public class revAsen {
+    public static void main(String[] args) {
+        String str1 = "My name is Saurabh";
+        String str2 = "";
+        String sarr[] = str1.split(str2);
+
+        for (String elem : sarr)
+        {
+            System.out.println(elem);
+        }
+
+        for (String elem : sarr) 
+        {
+            for (int i = elem.length() - 1; i >= 0; i--) 
+            {
+                str2 = str2 + elem.charAt(i);
+            }
+            str2=str2 +"";
+        }
+
+        System.out.println(str2);
+    }
+}
+
+//4  WAP to sort a String Alphabetically = sorAstr.java
+
+import java.util.Arrays;
+
+public class sorAstr {
+    static void sortString(String str) {
+        char[] arr = str.toCharArray();
+        Arrays.sort(arr);
+        System.out.print(String.valueOf(arr));
+    }
+
+    public static void main(String[] args) {
+        String s = "qwertyuiopasdfghjklzxcvbnm";
+        sortString(s);
+    }
+}
+
+---------------------------------------------------------------------------Assignmnet Question Part:4 -------------------------------------------------------------------
+
+1. Write a program to print a string entered by the user.
+Ans: 
+import java.util.*;
+class main
+{
+  public static void main(String args[])
+  {
+      Scanner sc  = new Scanner (System.in)
+      System.out.println("Enter the string);
+      String str = sc.nextLine();
+  }
+}
+
+2. How do you concatenate two strings in Java and give an example?
+Ans : String str1 = "Hello";
+       String str2 = "World";
+       String str3 = str1 + str2;
+
+3. How do you find the length of a string in Java Explain with an example?
+Ans: String str = "hello";
+      System.out.println(str.length());
+
+4. How do you compare two strings in Java?
+Ans: : String str1 = "Hello";
+       String str2 = "World";
+       System.out.println(str1.equals(str2));
+
+5. Write a program to find the length of the string "refrigerator"?
+Ans:  String str = "refrigerator";
+         System.out.println(str.length());
+
+6. Write a program to check if the letter 'e' is present in the word 'Umbrella'.
+Ans: class Ans{
+public static void main(String[] args){
+String a = "Umbrella";
+boolean per = false;
+for(int i = 0;i<a.length();i++){
+if(a.charAt(i) == 'e'){
+per=true;
+break;
+}
+}
+System.out.println(per);
+}
+}
+
+
+//7. Write a program to delete all consonants from the string "Hello, have a good day". (Take input from user) ? = delConsStr.java
+
+import java.util.Scanner;
+
+public class delConsStr {
+    public static void main(String[] args) {
+        String s;
+        int j = 0;
+        System.out.println("Enter a string");
+        Scanner so = new Scanner(System.in);
+        s = so.nextLine();
+        char ch[] = new char[20];
+        for (int i = 0; i < s.length(); i++) 
+        {
+            if (s.charAt(i) == 'a' || s.charAt(i) == 'A' || 
+                s.charAt(i) == 'e' || s.charAt(i) == 'E' || 
+                s.charAt(i) == 'i' || s.charAt(i) == 'I' || 
+                s.charAt(i) == 'o' || s.charAt(i) == 'O' || 
+                s.charAt(i) == 'U' || s.charAt(i) == 'u'
+                ) 
+                {
+                ch[j++] = s.charAt(i);
+                } 
+            else 
+            {
+                continue;
+            }
+        }
+        for (int i = 0; i < j; i++) {
+            System.out.print(ch[i]);
+        }
+        System.out.println();
+        so.close();
+    }
+}
+
+
+

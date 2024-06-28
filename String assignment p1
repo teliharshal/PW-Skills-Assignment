@@ -1,0 +1,126 @@
+All the program files also available in this repository 
+
+//1.Write a java program to Reverse a string without using the inbuilt method = revStr.java
+
+public class revStr {
+    public static void main(String[] args) {
+        String name = "Saurabh Bahadur";
+        String reverse = "";
+
+        for (int i = name.length() - 1; i >= 0; i--) 
+        {
+
+            char letter = name.charAt(i);
+            reverse = reverse + letter;
+        }
+        System.out.println(reverse);
+    }
+}
+
+//2.Write a java program to know whether the given string is palindrome = palinStr.java
+
+import java.util.Scanner;
+
+public class palinStr {
+    public static void main(String[] args) 
+    {
+        String str , rev = "";
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string to check it is palindrone or not");
+        str = sc.nextLine();
+        
+        for(int i = str.length()-1; i>=0 ;i-- )
+        {
+            rev = rev + str.charAt(i);
+        }
+        System.out.println(rev);
+        
+        if(str.equals(rev))
+        {
+            System.out.println("String is palindrone");
+        }
+        else
+        {
+            System.out.println("String is not palindrone");
+        }
+        sc.close();
+    }
+
+}
+
+
+//3.Write a java program to convert upper case to lower case and vice versa = ULCasStr.java
+import java.util.*;
+
+public class ULCasStr {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter any string");
+        String str = sc.nextLine();
+        System.out.println("Your enter String is :" +str);
+        String str2 = "";
+        for(int i = 0; i< str.length(); i++)
+        {
+            if(str.charAt(i)>= 'a' && str.charAt(i)<='z')
+            {
+                str2 = str2 + (char) (str.charAt(i) - 32);
+            }
+            else if(str.charAt(i)>='A' && str.charAt(i)<='Z')
+            {
+                str2 = str2 + (char) (str.charAt(i) + 32);
+            }
+        }
+
+         System.out.println("The final output of the string :" +str2);
+
+        sc.close();
+    }
+}
+
+//4.Write a java program to remove a particular character from a String = RemCharStr.java
+
+import java.util.*;
+
+public class RemCharStr {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string ");
+        String str = sc.nextLine();
+        System.out.println("Enter the index value you want to remove from string ");
+        int idx = sc.nextInt();
+
+        String sf = str.substring(0, idx) + str.substring( idx +1);
+        System.out.println("The final string is ::"+sf);
+        System.out.println("The final String is :" + removeCharAt(str, idx));
+        sc.close();
+    }
+
+    public static String removeCharAt(String s, int idx) {
+        return s.substring(0, idx) + s.substring(idx + 1);
+    }
+}
+
+//5.Write a java program to find the index of a substring = IndOfStr.java
+import java.util.*;
+public class IndOfStr 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a string");
+        String str1 = sc.nextLine();
+        System.out.println("Enter the string to find in main String");
+        String str2 = sc.nextLine();
+        int idx = str1.indexOf(str2);
+        if (idx==-1)
+        {
+            System.out.println("String not found");
+        }
+        else
+        {
+            System.out.println("String found");
+        }
+        sc.close();
+    }
+}
